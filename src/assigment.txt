@@ -1,0 +1,70 @@
+MY vient de me confirmer que tu seras dans le projet jusqu’à fin septembre (fin).
+
+Voici le test UI dont je t’ai parlé.
+
+Créer un Single Page Application (SPA) simple qui interagira avec une api REST
+
+L’application a pour objectif d’interagir avec une api test décrite à cette adresse :
+https://jsonplaceholder.typicode.com/
+
+L’application affichera la liste des posts, et permettre la création d’un post ou la modification d’un post existant.
+
+Post
+{
+                userId: 1,
+                id: 1,
+                title: "sunt .. dsfsdf",
+                body: "quia … architecto"
+}
+
+User
+{
+                id: 1,
+                name: "Leanne Graham",
+                username: "Bret",
+                email: "Sincere@april.biz",
+                address: { … },
+                phone: "1-770-736-8031 x56442",
+                website: "hildegard.org",
+                company: { … }
+}
+
+
+L'application devra contenir deux écrans :
+1             Liste
+Cet écran doit afficher la liste des posts dans un tableau.
+•             Les colonnes affichées seront Id, User Id, title,
+•             Chaque ligne devra aussi contenir un bouton amenant à l'écran de modification d'un post
+•             Un bouton en dehors du tableau permettra d'aller vers l'écran de création d'un post.
+
+2             Formulaire
+Cet écran doit permettre la création d’un post ou sa modification, si un id est passé dans l’url.
+•             Le formulaire devra être un Dynamic Form (Model Driven Form)
+•             Les champs title, userId et body sont obligatoires, et aucune soumission ne devra être possible si le formulaire est invalide.
+•             Le champ title doit contenir au minimum 5 caractères, et au maximum 100.
+
+Notes
+•             L'api étant simulée, il n'est pas attendu que l'édition ou la création d'un post apparaisse dans la liste, mais l'appel http doit être fait.
+•             Les erreurs doivent être gérées et affichées sur l'écran.
+•             Utiliser Bootstrap pour la mise en page et les styles devrait faire gagner du temps, mais n’est pas requis.
+
+Bonus 1
+la sélection du user se fera par un menu déroulant contenant la liste des users (issue de https://jsonplaceholder.typicode.com/users) avec l'attribut name en affichage
+
+Bonus 2
+Liste des postes montre le nom de l'utilisateur au lieu de son ID
+
+Bonus 3
+Test unitaire pour les validations du formulaire d'entré
+
+Bonus 4
+Pull request dans un répo GIT
+
+Pierre Awaragi
+Directeur services-conseils
+CGI | Grand Montréal
+Services commerciaux et publics
+1350 boulevard René-Lévesque Ouest, bureau 24.600
+Téléphone: +1-514-415-3000 extension 1017386
+Cellulaire: +1-514-231-8489
+
