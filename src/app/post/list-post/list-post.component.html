@@ -1,3 +1,32 @@
-<p>
-  list-post works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-primary">New Post</button>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Id</th>
+          <th scope="col">Title</th>
+          <th scope="col">User</th>
+        </tr>
+      </thead>
+      <!-- <a href="#" class="list-group-item clearfix"> -->
+      <tbody>
+        <tr *ngFor="let post of posts">
+          <th scope="row">1</th>
+          <td>{{ post.id }}</td>
+          <td>{{ post.title }}</td>
+          <td>{{ post.userId }}</td>
+          <td><button class="btn btn-success">Edit</button></td>
+        </tr>
+      </tbody>
+      <!-- </a> -->
+    </table>
+    <app-item-post></app-item-post>
+  </div>
+</div>

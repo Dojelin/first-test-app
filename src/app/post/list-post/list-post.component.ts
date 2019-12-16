@@ -1,3 +1,5 @@
+import { User } from "./../user.model";
+import { Post } from "./../post.model";
 import { Component, OnInit } from "@angular/core";
 
 @Component({
@@ -6,8 +8,20 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./list-post.component.css"]
 })
 export class ListPostComponent implements OnInit {
-  posts = [];
-  constructor() { }
+  user: User = new User(
+    "Someone",
+    {
+      companyId: "CGI",
+      companyName: "Consulting Global Information"
+    },
+    "514.123.9865"
+  );
 
-  ngOnInit() { }
+  posts: Post[] = [
+    new Post("Fisrt post", "This is a first post", this.user.id),
+    new Post("Secod post", "This is a secod post", this.user.id)
+  ];
+  constructor() {}
+
+  ngOnInit() {}
 }
