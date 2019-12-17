@@ -15,17 +15,18 @@
           <th scope="col">User</th>
         </tr>
       </thead>
-      <!-- <a href="#" class="list-group-item clearfix"> -->
+
       <tbody>
-        <tr *ngFor="let post of posts">
-          <th scope="row">1</th>
+        <tr *ngFor="let post of posts; let i = index">
+          <a href="#" (click)="onSelected(i)"
+            ><th scope="row">{{ i + 1 }}</th>
+          </a>
           <td>{{ post.id }}</td>
           <td>{{ post.title }}</td>
           <td>{{ post.userId }}</td>
           <td><button class="btn btn-success">Edit</button></td>
         </tr>
       </tbody>
-      <!-- </a> -->
     </table>
     <app-item-post></app-item-post>
   </div>

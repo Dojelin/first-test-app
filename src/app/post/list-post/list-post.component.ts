@@ -1,6 +1,8 @@
 import { User } from "./../user.model";
 import { Post } from "./../post.model";
 import { Component, OnInit } from "@angular/core";
+import { PostService } from "./../post.service";
+import { UserService } from "./../user.service";
 
 @Component({
   selector: "app-list-post",
@@ -8,20 +10,21 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./list-post.component.css"]
 })
 export class ListPostComponent implements OnInit {
-  user: User = new User(
-    "Someone",
-    {
-      companyId: "CGI",
-      companyName: "Consulting Global Information"
-    },
-    "514.123.9865"
-  );
+  posts: Post[];
+  user: User[];
 
-  posts: Post[] = [
-    new Post("Fisrt post", "This is a first post", this.user.id),
-    new Post("Secod post", "This is a secod post", this.user.id)
-  ];
-  constructor() {}
+  constructor(
+    private postService: PostService,
+    private userService: UserService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.user = this.userService.startUser();
+
+    this.posts = this.postService.startsPosts(this.user[0].id);
+  }
+
+  onSelected(position: number) {
+    this.postService.postSelected.emit(this.posts[position]);
+  }
 }
