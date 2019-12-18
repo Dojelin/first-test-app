@@ -27,4 +27,8 @@ export class ListPostComponent implements OnInit {
   onSelected(position: number) {
     this.postService.postSelected.emit(this.posts[position]);
   }
+
+  getUserName(userId: number) {
+    return this.userService.getUser(userId).name;
+  }
 }

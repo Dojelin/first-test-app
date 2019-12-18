@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-    <button class="btn btn-primary">New Post</button>
+    <button class="btn btn-primary" routerLink="/edit-post">New Post</button>
   </div>
 </div>
 <hr />
@@ -23,7 +23,7 @@
           </a>
           <td>{{ post.id }}</td>
           <td>{{ post.title }}</td>
-          <td>{{ post.userId }}</td>
+          <td>{{ getUserName(post.userId) }}</td>
           <td><button class="btn btn-success">Edit</button></td>
         </tr>
       </tbody>

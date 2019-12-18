@@ -8,6 +8,9 @@ import { PostComponent } from "./post/post.component";
 import { ItemPostComponent } from "./post/list-post/item-post/item-post.component";
 import { PostService } from "./post/post.service";
 import { UserService } from "./post/user.service";
+import { AppRoutingModule } from "./app-routing.module";
+import { EditPostComponent } from "./post/edit-post/edit-post.component";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -15,9 +18,10 @@ import { UserService } from "./post/user.service";
     HeaderComponent,
     ListPostComponent,
     PostComponent,
-    ItemPostComponent
+    ItemPostComponent,
+    EditPostComponent
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [PostService, UserService],
   bootstrap: [AppComponent]
 })
