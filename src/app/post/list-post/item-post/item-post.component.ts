@@ -3,6 +3,7 @@ import { PostService } from "../../post.service";
 import { Post } from "../../post.model";
 import { User } from "../../user.model";
 import { UserService } from "../../user.service";
+import { ActivatedRoute, Params } from "@angular/router";
 
 @Component({
   selector: "app-item-post",
@@ -12,13 +13,20 @@ import { UserService } from "../../user.service";
 export class ItemPostComponent implements OnInit {
   selectedPost: Post;
   selectedUser: User;
+  postId: number;
 
   constructor(
     private postService: PostService,
-    private userService: UserService
+    private userService: UserService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      this.postId = +params["id"];
+      this.selectedPost = this.postService.getPostById(this.postId);
+    });
+
     this.postService.postSelected.subscribe((post: Post) => {
       this.selectedPost = post;
     });

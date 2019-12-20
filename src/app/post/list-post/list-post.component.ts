@@ -11,7 +11,7 @@ import { UserService } from "./../user.service";
 })
 export class ListPostComponent implements OnInit {
   posts: Post[];
-  user: User[];
+  users: User[];
 
   constructor(
     private postService: PostService,
@@ -19,9 +19,13 @@ export class ListPostComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.user = this.userService.startUser();
+    this.users = this.userService.getUsers();
 
-    this.posts = this.postService.startsPosts(this.user[0].id);
+    this.postService.postChanged.subscribe((posts: Post[]) => {
+      this.posts = posts;
+    });
+
+    this.posts = this.postService.getPost();
   }
 
   onSelected(position: number) {

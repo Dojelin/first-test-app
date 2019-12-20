@@ -16,7 +16,15 @@ export class UserService {
     ]);
   }
 
-  getUser(userId: number) {
+  getUser(userId: number): User {
     return this.users.find(user => user.id === userId);
+  }
+
+  getUsers() {
+    if (!this.users) {
+      this.users = this.startUser();
+    }
+
+    return this.users.slice();
   }
 }

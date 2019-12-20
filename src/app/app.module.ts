@@ -11,6 +11,7 @@ import { UserService } from "./post/user.service";
 import { AppRoutingModule } from "./app-routing.module";
 import { EditPostComponent } from "./post/edit-post/edit-post.component";
 import { FormsModule } from "@angular/forms";
+import { PostStartComponent } from './post/post-start/post-start.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from "@angular/forms";
     ListPostComponent,
     PostComponent,
     ItemPostComponent,
-    EditPostComponent
+    EditPostComponent,
+    PostStartComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [PostService, UserService],
