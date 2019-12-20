@@ -1,23 +1,15 @@
 <div class="row">
   <div class="col-xs-12">
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <label for="user">User</label>
       </div>
       <div class="row">
         <div class="col-sm-6 form-group">
-          <select
-            name="user"
-            id="user"
-            class="form-control"
-            name="user"
-            ngModel
-          >
+          <select id="user" class="form-control" formControlName="user">
             <option *ngFor="let user of allUsers" [value]="user.id">{{
               user.name
             }}</option>
-            <!-- <option value="val1">test user</option>
-            <option value="val2">test 2 user</option> -->
           </select>
         </div>
       </div>
@@ -25,13 +17,12 @@
         <label for="title">Title</label>
       </div>
       <div class="row">
-        <div class="col-sm-6 form-group">
+        <div class="col-sm-8 form-group">
           <input
             type="text"
             id="title"
             class="form-comtrol"
-            name="title"
-            ngModel
+            formControlName="title"
           />
         </div>
       </div>
@@ -39,22 +30,28 @@
         <label for="body">Body</label>
       </div>
       <div class="row">
-        <div class="col-sm-15 form-group">
+        <div class="col-sm-12 form-group">
           <textarea
-            name="body"
             id="body"
-            cols="30"
+            cols="70"
             rows="10"
-            ngModel
+            formControlName="body"
           ></textarea>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xs-12 btn-toolbar">
-          <button class="btn btn-success" type="submit">Submit</button>
-          <button class="btn btn-danger" type="button">Delete</button>
+          <button class="btn btn-success" type="submit">
+            {{ editMode ? "Update" : " Add" }}
+          </button>
+          <button class="btn btn-warning" type="button" (click)="onDelete()">
+            Delete
+          </button>
           <button class="btn btn-primary" type="button">Clear</button>
+          <button class="btn btn-danger" type="button" (click)="onCancel()">
+            Cancel
+          </button>
         </div>
       </div>
     </form>

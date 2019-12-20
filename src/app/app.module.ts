@@ -10,8 +10,8 @@ import { PostService } from "./post/post.service";
 import { UserService } from "./post/user.service";
 import { AppRoutingModule } from "./app-routing.module";
 import { EditPostComponent } from "./post/edit-post/edit-post.component";
-import { FormsModule } from "@angular/forms";
-import { PostStartComponent } from './post/post-start/post-start.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { PostStartComponent } from "./post/post-start/post-start.component";
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { PostStartComponent } from './post/post-start/post-start.component';
     EditPostComponent,
     PostStartComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [PostService, UserService],
   bootstrap: [AppComponent]
 })

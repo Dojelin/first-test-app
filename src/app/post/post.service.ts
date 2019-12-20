@@ -23,15 +23,15 @@ export class PostService {
   }
 
   getPostById(id: number): Post {
-    return this.posts.find(post => post.id === id);
+    return this.posts.find(post => post.id === Number(id));
   }
 
   addPost(post: Post) {
-    this.posts.push(post);
     this.postChanged.next(this.posts.slice());
   }
 
-  updatePost(index: number, newPost: Post) {
+  updatePost(id: number, newPost: Post) {
+    const index = this.posts.indexOf(this.getPostById(id));
     this.posts[index] = newPost;
     this.postChanged.next(this.posts.slice());
   }

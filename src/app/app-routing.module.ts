@@ -16,12 +16,9 @@ const appRoutes: Routes = [
     ]
   },
   {
-    path: "edit-post",
-    component: EditPostComponent,
-    children: [
-      { path: "", component: EditPostComponent },
-      { path: ":id", component: EditPostComponent }
-    ]
+    path: "edit-post/:id",
+    component: EditPostComponent
+    // children: [{ path: "new", component: EditPostComponent }]
   }
 ];
 
