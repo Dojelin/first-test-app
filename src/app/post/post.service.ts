@@ -27,6 +27,7 @@ export class PostService {
   }
 
   addPost(post: Post) {
+    this.posts.push(post);
     this.postChanged.next(this.posts.slice());
   }
 
@@ -36,7 +37,8 @@ export class PostService {
     this.postChanged.next(this.posts.slice());
   }
 
-  deletePost(index: number) {
+  deletePost(id: number) {
+    const index = this.posts.indexOf(this.getPostById(id));
     this.posts.splice(index, 1);
     this.postChanged.next(this.posts.slice());
   }

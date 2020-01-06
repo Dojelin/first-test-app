@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { NgForm, FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Post } from "../post.model";
 import { UserService } from "../user.service";
 import { User } from "../user.model";
@@ -28,7 +28,7 @@ export class EditPostComponent implements OnInit {
     this.allUsers = this.userService.getUsers();
 
     this.route.params.subscribe((params: Params) => {
-      this.id = params["id"];
+      this.id = Number(params["id"]);
       this.editMode = params["id"] != "new";
       this.initForm();
     });
@@ -49,16 +49,20 @@ export class EditPostComponent implements OnInit {
       this.postService.addPost(newPost);
     }
 
-    console.log(this.postService.getPost());
     this.onCancel();
   }
 
   onDelete() {
     this.postService.deletePost(this.id);
+    this.onCancel();
   }
 
   onCancel() {
     this.router.navigate(["/posts"]);
+  }
+
+  onClear() {
+    this.postForm.reset();
   }
 
   private initForm() {
@@ -75,9 +79,13 @@ export class EditPostComponent implements OnInit {
     }
 
     this.postForm = new FormGroup({
-      title: new FormControl(postTitle),
-      body: new FormControl(postBody),
-      user: new FormControl(postUserId)
+      title: new FormControl(postTitle, [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(100)
+      ]),
+      body: new FormControl(postBody, Validators.required),
+      user: new FormControl(postUserId, Validators.required)
     });
   }
 }
