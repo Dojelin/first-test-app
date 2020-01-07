@@ -12,6 +12,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { EditPostComponent } from "./post/edit-post/edit-post.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PostStartComponent } from "./post/post-start/post-start.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,13 @@ import { PostStartComponent } from "./post/post-start/post-start.component";
     EditPostComponent,
     PostStartComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
   providers: [PostService, UserService],
   bootstrap: [AppComponent]
 })

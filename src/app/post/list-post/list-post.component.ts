@@ -19,13 +19,15 @@ export class ListPostComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.users = this.userService.getUsers();
+    this.userService.getUsers().subscribe(allUsers => {
+      this.users = allUsers;
+    });
 
     this.postService.postChanged.subscribe((posts: Post[]) => {
       this.posts = posts;
     });
 
-    this.posts = this.postService.getPost();
+    this.posts = this.postService.getPosts();
   }
 
   onSelected(position: number) {

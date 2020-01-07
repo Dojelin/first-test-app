@@ -25,7 +25,9 @@ export class EditPostComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.allUsers = this.userService.getUsers();
+    this.userService.getUsers().subscribe(allUsers => {
+      this.allUsers = allUsers;
+    });
 
     this.route.params.subscribe((params: Params) => {
       this.id = Number(params["id"]);

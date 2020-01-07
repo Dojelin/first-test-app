@@ -1,30 +1,26 @@
 import { User } from "./user.model";
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class UserService {
-  private users: User[];
+  private users: User[] = [];
+
+  constructor(private http: HttpClient) {}
 
   startUser() {
-    return (this.users = [
-      new User(
-        "Someone",
-        {
-          companyId: "CGI",
-          companyName: "Consulting Global Information"
-        },
-        "514.123.9865"
-      )
-    ]);
+    this.http
+      .get<User[]>("https://jsonplaceholder.typicode.com/users")
+      .subscribe(responseUsers => {
+        this.users = responseUsers;
+      });
+  }
+
+  getUsers() {
+    return this.http.get<User[]>("https://jsonplaceholder.typicode.com/users");
   }
 
   getUser(userId: number): User {
     return this.users.find(user => user.id === userId);
-  }
-
-  getUsers() {
-    if (!this.users) {
-      this.users = this.startUser();
-    }
-
-    return this.users.slice();
   }
 }

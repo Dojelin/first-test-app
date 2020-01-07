@@ -1,25 +1,29 @@
 import { EventEmitter } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 
 import { Post } from "./post.model";
 import { Subject } from "rxjs";
 
+@Injectable()
 export class PostService {
-  private posts: Post[];
+  private posts: Post[] = [];
   postSelected = new EventEmitter<Post>();
   postChanged = new Subject<Post[]>();
 
-  startsPosts(userId: number) {
-    return (this.posts = [
-      new Post("First post", "This is a first post", userId),
-      new Post("Secod post", "This is a secod post", userId)
-    ]);
+  constructor(private http: HttpClient) {}
+
+  startsPosts() {
+    this.http
+      .get<Post[]>("https://jsonplaceholder.typicode.com/posts")
+      .subscribe(responsePosts => {
+        this.posts = responsePosts;
+        this.postChanged.next(this.posts.slice());
+      });
   }
 
-  getPost() {
-    if (this.posts) {
-      return this.posts.slice();
-    }
-    return [];
+  getPosts() {
+    return this.posts.slice();
   }
 
   getPostById(id: number): Post {
@@ -27,6 +31,12 @@ export class PostService {
   }
 
   addPost(post: Post) {
+    this.http
+      .post("https://jsonplaceholder.typicode.com/posts", post)
+      .subscribe(response => {
+        console.log(response);
+      });
+
     this.posts.push(post);
     this.postChanged.next(this.posts.slice());
   }

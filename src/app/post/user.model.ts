@@ -20,13 +20,14 @@ export class User {
   public company: ICompany;
 
   constructor(
+    id: number,
     name: string,
     company: ICompany,
     phone?: string,
     address?: IAddress,
     website?: string
   ) {
-    this.id = Math.round(Math.random() * 10);
+    this.id = id;
     this.name = name;
     this.phone = phone;
     this.username = name + company.companyId;

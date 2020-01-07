@@ -12,21 +12,14 @@ import { UserService } from "./post/user.service";
 export class AppComponent implements OnInit {
   title = "first-test-app";
 
-  posts: Post[];
-  user: User[];
-
   constructor(
     private postService: PostService,
     private userService: UserService
   ) {}
 
   ngOnInit() {
-    if (this.userService.getUsers.length === 0) {
-      this.user = this.userService.startUser();
-    }
+    this.userService.startUser();
 
-    if (this.postService.getPost.length === 0) {
-      this.posts = this.postService.startsPosts(this.user[0].id);
-    }
+    this.postService.startsPosts();
   }
 }
