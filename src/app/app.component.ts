@@ -1,6 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { Post } from "./post/post.model";
-import { User } from "./post/user.model";
 import { PostService } from "./post/post.service";
 import { UserService } from "./post/user.service";
 

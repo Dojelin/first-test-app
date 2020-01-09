@@ -9,7 +9,8 @@ import { ActivatedRoute, Params, Router } from "@angular/router";
 @Component({
   selector: "app-edit-post",
   templateUrl: "./edit-post.component.html",
-  styleUrls: ["./edit-post.component.css"]
+  styleUrls: ["./edit-post.component.css"],
+  providers: [PostService, UserService]
 })
 export class EditPostComponent implements OnInit {
   allUsers: User[];

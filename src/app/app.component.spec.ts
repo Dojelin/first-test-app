@@ -1,16 +1,44 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
-describe('AppComponent', () => {
+import { PostService } from "./post/post.service";
+import { UserService } from "./post/user.service";
+
+import { TestBed, async } from "@angular/core/testing";
+import { AppComponent } from "./app.component";
+import { HeaderComponent } from "./header/header.component";
+import { AppRoutingModule } from "./app-routing.module";
+import { ListPostComponent } from "./post/list-post/list-post.component";
+import { PostComponent } from "./post/post.component";
+import { ItemPostComponent } from "./post/list-post/item-post/item-post.component";
+import { EditPostComponent } from "./post/edit-post/edit-post.component";
+import { PostStartComponent } from "./post/post-start/post-start.component";
+
+describe("AppComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent,
+        ListPostComponent,
+        PostComponent,
+        ItemPostComponent,
+        EditPostComponent,
+        PostStartComponent
       ],
+      imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule
+      ],
+      providers: [PostService, UserService]
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
+  it("should create the app", () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
@@ -19,13 +47,6 @@ describe('AppComponent', () => {
   it(`should have as title 'first-test-app'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('first-test-app');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to first-test-app!');
+    expect(app.title).toEqual("first-test-app");
   });
 });
