@@ -31,9 +31,6 @@ export class ListPostComponent implements OnInit {
       this.posts = posts;
       this.collectionSize = this.posts ? this.posts.length : 0;
     });
-
-    this.posts = this.postService.getPosts();
-    this.collectionSize = this.posts ? this.posts.length : 0;
   }
 
   getUserName(userId: number) {

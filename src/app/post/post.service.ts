@@ -1,15 +1,15 @@
 import { EventEmitter } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
 
 import { Post } from "./post.model";
-import { Subject } from "rxjs";
 
 @Injectable()
 export class PostService {
   private posts: Post[] = [];
   postSelected = new EventEmitter<Post>();
-  postChanged = new Subject<Post[]>();
+  postChanged = new BehaviorSubject<Post[]>(this.posts);
 
   constructor(private http: HttpClient) {}
 
@@ -20,10 +20,6 @@ export class PostService {
         this.posts = responsePosts;
         this.postChanged.next(this.posts.slice());
       });
-  }
-
-  getPosts() {
-    return this.posts.slice();
   }
 
   getPostById(id: number): Post {
