@@ -4,6 +4,7 @@ import { PostComponent } from "./post/post.component";
 import { EditPostComponent } from "./post/edit-post/edit-post.component";
 import { PostStartComponent } from "./post/post-start/post-start.component";
 import { ItemPostComponent } from "./post/list-post/item-post/item-post.component";
+import { AuthComponent } from "./auth/auth.component";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/posts", pathMatch: "full" },
@@ -18,8 +19,8 @@ const appRoutes: Routes = [
   {
     path: "edit-post/:id",
     component: EditPostComponent
-    // children: [{ path: "new", component: EditPostComponent }]
-  }
+  },
+  { path: "auth", component: AuthComponent }
 ];
 
 @NgModule({

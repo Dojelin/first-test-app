@@ -13,6 +13,8 @@ import { EditPostComponent } from "./post/edit-post/edit-post.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PostStartComponent } from "./post/post-start/post-start.component";
 import { HttpClientModule } from "@angular/common/http";
+import { AuthComponent } from "./auth/auth.component";
+import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinner.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { HttpClientModule } from "@angular/common/http";
     PostComponent,
     ItemPostComponent,
     EditPostComponent,
-    PostStartComponent
+    PostStartComponent,
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
