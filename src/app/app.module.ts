@@ -12,9 +12,12 @@ import { AppRoutingModule } from "./app-routing.module";
 import { EditPostComponent } from "./post/edit-post/edit-post.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PostStartComponent } from "./post/post-start/post-start.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AuthComponent } from "./auth/auth.component";
 import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinner.component";
+import { DataStorageService } from "./shared/data-storage.service";
+import { DropDownDirective } from "./shared/dropdown.directive";
+import { AuthInterctorService } from "./auth/auth-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinne
     EditPostComponent,
     PostStartComponent,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    DropDownDirective
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,12 @@ import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinne
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [PostService, UserService],
+  providers: [
+    PostService,
+    UserService,
+    DataStorageService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterctorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

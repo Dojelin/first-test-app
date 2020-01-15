@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { PostService } from "./post/post.service";
 import { UserService } from "./post/user.service";
+import { AuthService } from "./auth/auth.service";
 
 @Component({
   selector: "app-root",
@@ -12,12 +13,15 @@ export class AppComponent implements OnInit {
 
   constructor(
     private postService: PostService,
-    private userService: UserService
+    private userService: UserService,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
     this.userService.startUser();
 
     this.postService.startsPosts();
+
+    this.authService.autoLogin();
   }
 }

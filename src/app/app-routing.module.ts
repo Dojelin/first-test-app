@@ -5,12 +5,14 @@ import { EditPostComponent } from "./post/edit-post/edit-post.component";
 import { PostStartComponent } from "./post/post-start/post-start.component";
 import { ItemPostComponent } from "./post/list-post/item-post/item-post.component";
 import { AuthComponent } from "./auth/auth.component";
+import { AuthGuard } from "./auth/auth.guards";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/posts", pathMatch: "full" },
   {
     path: "posts",
     component: PostComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: "", component: PostStartComponent },
       { path: ":id", component: ItemPostComponent }

@@ -26,6 +26,10 @@ export class PostService {
     return this.posts.find(post => post.id === Number(id));
   }
 
+  getAllPost(): Post[] {
+    return this.posts;
+  }
+
   addPost(post: Post) {
     this.http
       .post("https://jsonplaceholder.typicode.com/posts", post)
