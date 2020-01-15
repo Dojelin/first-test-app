@@ -18,6 +18,7 @@ import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinne
 import { DataStorageService } from "./shared/data-storage.service";
 import { DropDownDirective } from "./shared/dropdown.directive";
 import { AuthInterctorService } from "./auth/auth-interceptor.service";
+import { AlerComponent } from "./shared/alert/alert.component";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AuthInterctorService } from "./auth/auth-interceptor.service";
     PostStartComponent,
     AuthComponent,
     LoadingSpinnerComponent,
-    DropDownDirective
+    DropDownDirective,
+    AlerComponent
   ],
   imports: [
     BrowserModule,
