@@ -5,7 +5,7 @@ import {
   HttpHandler,
   HttpParams
 } from "@angular/common/http";
-import { AuthService } from "./auth.service";
+import { AuthService } from "../services/auth.service";
 import { take, exhaustMap } from "rxjs/operators";
 
 @Injectable()

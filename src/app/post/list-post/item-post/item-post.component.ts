@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { PostService } from "../../post.service";
-import { Post } from "../../post.model";
-import { User } from "../../user.model";
-import { UserService } from "../../user.service";
+import { PostService } from "../../../services/post.service";
+import { Post } from "../../../models/post.model";
+import { User } from "../../../models/user.model";
+import { UserService } from "../../../services/user.service";
 import { ActivatedRoute, Params } from "@angular/router";
 
 @Component({

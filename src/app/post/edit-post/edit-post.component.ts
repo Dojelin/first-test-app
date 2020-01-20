@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Post } from "../post.model";
-import { UserService } from "../user.service";
-import { User } from "../user.model";
-import { PostService } from "../post.service";
+import { Post } from "../../models/post.model";
+import { UserService } from "../../services/user.service";
+import { User } from "../../models/user.model";
+import { PostService } from "../../services/post.service";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 
 @Component({

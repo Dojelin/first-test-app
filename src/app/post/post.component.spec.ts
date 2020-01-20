@@ -8,8 +8,8 @@ import { ItemPostComponent } from "./list-post/item-post/item-post.component";
 import { EditPostComponent } from "./edit-post/edit-post.component";
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { PostService } from "./post.service";
-import { UserService } from "./user.service";
+import { PostService } from "../services/post.service";
+import { UserService } from "../services/user.service";
 import { HttpClientModule } from "@angular/common/http";
 import { AuthComponent } from "../auth/auth.component";
 import { AlerComponent } from "../shared/alert/alert.component";

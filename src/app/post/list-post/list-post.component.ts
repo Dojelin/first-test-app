@@ -1,8 +1,8 @@
-import { User } from "./../user.model";
-import { Post } from "./../post.model";
+import { User } from "../../models/user.model";
+import { Post } from "../../models/post.model";
 import { Component, OnInit } from "@angular/core";
-import { PostService } from "./../post.service";
-import { UserService } from "./../user.service";
+import { PostService } from "../../services/post.service";
+import { UserService } from "../../services/user.service";
 
 @Component({
   selector: "app-list-post",

@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { catchError, tap } from "rxjs/operators";
 import { throwError, BehaviorSubject } from "rxjs";
-import { ApplicationUser } from "./applicationUser.model";
+import { ApplicationUser } from "../models/applicationUser.model";
 import { Router } from "@angular/router";
 import { environment } from "../../environments/environment";
 

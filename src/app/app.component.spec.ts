@@ -1,8 +1,8 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { PostService } from "./post/post.service";
-import { UserService } from "./post/user.service";
+import { PostService } from "./services/post.service";
+import { UserService } from "./services/user.service";
 
 import { TestBed, async } from "@angular/core/testing";
 import { AppComponent } from "./app.component";

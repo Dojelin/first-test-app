@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { ItemPostComponent } from "./item-post.component";
-import { PostService } from "../../post.service";
+import { PostService } from "../../../services/post.service";
 import { HttpClientModule } from "@angular/common/http";
-import { UserService } from "../../user.service";
+import { UserService } from "../../../services/user.service";
 import { AppRoutingModule } from "src/app/app-routing.module";
 import { PostComponent } from "../../post.component";
 import { PostStartComponent } from "../../post-start/post-start.component";

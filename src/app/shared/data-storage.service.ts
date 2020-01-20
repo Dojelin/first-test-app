@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { PostService } from "../post/post.service";
-import { AuthService } from "../auth/auth.service";
-import { Post } from "../post/post.model";
+import { PostService } from "../services/post.service";
+import { AuthService } from "../services/auth.service";
+import { Post } from "../models/post.model";
 import { environment } from "../../environments/environment";
 
 @Injectable()
