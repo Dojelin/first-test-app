@@ -1,7 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { PostService } from "./post/post.service";
 import { UserService } from "./post/user.service";
 
@@ -14,6 +13,11 @@ import { PostComponent } from "./post/post.component";
 import { ItemPostComponent } from "./post/list-post/item-post/item-post.component";
 import { EditPostComponent } from "./post/edit-post/edit-post.component";
 import { PostStartComponent } from "./post/post-start/post-start.component";
+import { AuthComponent } from "./auth/auth.component";
+import { AlerComponent } from "./shared/alert/alert.component";
+import { DataStorageService } from "./shared/data-storage.service";
+import { AuthInterctorService } from "./auth/auth-interceptor.service";
+import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinner.component";
 
 describe("AppComponent", () => {
   beforeEach(async(() => {
@@ -25,7 +29,10 @@ describe("AppComponent", () => {
         PostComponent,
         ItemPostComponent,
         EditPostComponent,
-        PostStartComponent
+        PostStartComponent,
+        AuthComponent,
+        AlerComponent,
+        LoadingSpinnerComponent
       ],
       imports: [
         BrowserModule,
@@ -34,7 +41,16 @@ describe("AppComponent", () => {
         ReactiveFormsModule,
         HttpClientModule
       ],
-      providers: [PostService, UserService]
+      providers: [
+        PostService,
+        UserService,
+        DataStorageService,
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: AuthInterctorService,
+          multi: true
+        }
+      ]
     }).compileComponents();
   }));
 

@@ -11,6 +11,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PostService } from "./post.service";
 import { UserService } from "./user.service";
 import { HttpClientModule } from "@angular/common/http";
+import { AuthComponent } from "../auth/auth.component";
+import { AlerComponent } from "../shared/alert/alert.component";
+import { LoadingSpinnerComponent } from "../shared/loading-spinner/loading-spinner.component";
 
 describe("PostComponent", () => {
   let component: PostComponent;
@@ -23,7 +26,10 @@ describe("PostComponent", () => {
         PostComponent,
         PostStartComponent,
         ItemPostComponent,
-        EditPostComponent
+        EditPostComponent,
+        AuthComponent,
+        AlerComponent,
+        LoadingSpinnerComponent
       ],
       imports: [
         AppRoutingModule,
