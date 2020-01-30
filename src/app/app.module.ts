@@ -19,6 +19,8 @@ import { DataStorageService } from "./shared/data-storage.service";
 import { DropDownDirective } from "./shared/dropdown.directive";
 import { AuthInterctorService } from "./auth/auth-interceptor.service";
 import { AlerComponent } from "./shared/alert/alert.component";
+import { UserListComponent } from './user-list/user-list.component';
+import { UserEditComponent } from './user-list/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { AlerComponent } from "./shared/alert/alert.component";
     AuthComponent,
     LoadingSpinnerComponent,
     DropDownDirective,
-    AlerComponent
+    AlerComponent,
+    UserListComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

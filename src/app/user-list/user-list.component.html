@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-primary" [routerLink]="['/edit-user', 'new']">
+      New User
+    </button>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Username</th>
+          <th scope="col">Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr
+          *ngFor="let user of userList; let i = index"
+          [routerLink]="[user.id]"
+          style="cursor:pointer;"
+        >
+          <td scope="row">{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.name }}</td>
+          <td>
+            <button
+              class="btn btn-success"
+              [routerLink]="['/edit-user', user.id]"
+            >
+              Edit
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
